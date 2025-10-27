@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root{
+  --bg: #0b0d12;
+  --text: #e9ecf4;
+  --gold: #ffd36a;
+  --gold-2: #ffbf3f;
+  --gold-3: #ff9f1a;
+  --glass: rgba(255,255,255,.06);
+  --glass-2: rgba(255,255,255,.10);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0a0c11;
+  color:var(--text);
+  font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+/* CARD — Futuristic Glass + cosmic gradient */
+.card{
+  width:720px;
+  height:820px;
+  position:relative;
+  border-radius:22px;
+  padding:22px 26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  text-align:center;
+
+  /* kosmiczny gradient */
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(87,0,140,.35), transparent 55%),
+    radial-gradient(900px 700px at 100% 100%, rgba(0,120,200,.28), transparent 60%),
+    linear-gradient(180deg, #111521 0%, #0c1019 100%);
+
+  /* szkło + złoty neon dookoła */
+  border: 1px solid rgba(255,221,120,.25);
+  box-shadow:
+    0 0 38px rgba(255,191,70,.18),
+    0 0 70px rgba(255,191,70,.12),
+    inset 0 0 12px rgba(255,191,70,.10);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* subtelny blur fade-in (bez przesuwania) */
+  animation: appear .7s ease both;
+  opacity:0; filter: blur(8px);
+}
+@keyframes appear {
+  to { opacity:1; filter: blur(0); }
+}
+
+/* Avatar — square, black with gold edges */
+.avatar-frame{
+  width:148px; height:148px;
+  margin:8px auto 10px;
+  border-radius:16px;
+  padding:2px;
+  background:
+    conic-gradient(from 0deg,
+      rgba(255,210,90,1),
+      rgba(255,175,60,1),
+      rgba(255,210,90,1));
+  box-shadow:
+    0 0 28px rgba(255,191,70,.45),
+    0 0 52px rgba(255,191,70,.25);
+}
+.avatar-inner{
+  width:100%; height:100%;
+  border-radius:14px;
+  background:#0a0a0a;
+  padding:6px;
+  box-shadow: inset 0 0 18px rgba(0,0,0,.65);
+  display:grid; place-items:center;
+}
+.avatar-inner img{
+  width:100%; height:100%;
+  object-fit:cover;
+  border-radius:10px;
+  box-shadow:
+    0 0 18px rgba(255,191,70,.2),
+    0 0 48px rgba(255,191,70,.12);
+}
+
+/* Neonowy NICK — pełen neon (gold) */
+.nick{
+  margin:0;
+  font-size:36px;
+  font-weight:800;
+  letter-spacing:.5px;
+  color:#ffeaa0; /* baza */
+  text-shadow:
+    0 0 8px rgba(255,234,160,.85),
+    0 0 22px rgba(255,200,70,.55),
+    0 0 44px rgba(255,165,40,.35);
+  transition: .2s ease;
+}
+.nick:hover{
+  text-shadow:
+    0 0 10px rgba(255,234,160,.95),
+    0 0 26px rgba(255,200,70,.75),
+    0 0 54px rgba(255,165,40,.45);
+}
+
+.meta{
+  margin-top:6px;
+  font-size:14px;
+  color:#cfd4e4;
+  opacity:.88;
+}
+.status-dot{
+  width:10px; height:10px;
+  display:inline-block; border-radius:50%;
+  margin-right:6px;
+  background:#27ff9a;
+  box-shadow:0 0 10px rgba(39,255,154,.7);
+}
+.status-dot.offline{
+  background:#6b7280;
+  box-shadow:none;
+}
+
+/* Metal buttons (panel sterowania) */
+.quick-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:6px;
+}
+.btn-metal{
+  padding:10px 16px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#0b0d12;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.2px;
+  background:
+    linear-gradient(180deg,#f7f7f7 0%, #d8d8d8 60%, #bcbcbc 100%);
+  border:1px solid #8e8e8e;
+  box-shadow:
+    inset 0 1px 0 #ffffffaa,
+    inset 0 -1px 0 #80808088,
+    0 0 0 2px rgba(255,191,70,.15),
+    0 0 22px rgba(255,191,70,.20);
+  transition:.2s ease;
+}
+.btn-metal:hover{
+  box-shadow:
+    inset 0 1px 0 #ffffffdd,
+    inset 0 -1px 0 #8a8a8a,
+    0 0 0 2px rgba(255,191,70,.35),
+    0 0 28px rgba(255,191,70,.36);
+  transform: translateY(-1px);
+}
+
+/* BIO */
+.bio{
+  width:78%;
+  margin:18px auto 0;
+  line-height:1.6;
+  color:#dde2ef;
+  background:var(--glass);
+  border:1px solid var(--glass-2);
+  border-radius:14px;
+  padding:12px 14px;
+  box-shadow: inset 0 0 30px rgba(0,0,0,.18);
+}
+
+/* SEPARATOR + SOCIAL */
+.separator{
+  width:52%;
+  margin:20px auto 12px;
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(255,191,70,.55), transparent);
+}
+.social-title{
+  font-weight:800;
+  letter-spacing:.12em;
+  color:#e8c98a;
+  text-shadow:0 0 12px rgba(255,191,70,.35);
+}
+.socials{
+  display:flex; justify-content:center; gap:14px;
+  margin:10px 0 12px;
+}
+.social{
+  width:42px; height:42px;
+  display:grid; place-items:center;
+  text-decoration:none; color:#16181f;
+  border-radius:12px;
+  background:linear-gradient(180deg,#f9f9f9 0%,#d9d9d9 100%);
+  border:1px solid #8e8e8e;
+  box-shadow:
+    inset 0 1px 0 #ffffffaa,
+    inset 0 -1px 0 #80808088,
+    0 0 0 2px rgba(255,191,70,.12);
+  transition:.2s ease;
+  font-size:20px;
+}
+.social:hover{
+  box-shadow:
+    inset 0 1px 0 #ffffffff,
+    inset 0 -1px 0 #8a8a8a,
+    0 0 0 2px rgba(255,191,70,.35),
+    0 0 24px rgba(255,191,70,.35);
+  transform: translateY(-1px);
+}
+
+/* FOOTER */
+.footer{
+  font-size:12px;
+  color:#c8cde0;
+  opacity:.8;
+}
+
+/* Podłoga światła pod kartą (złoty neon subtelny) */
+.card::after{
+  content:"";
+  position:absolute;
+  left:50%; bottom:-22px;
+  transform:translateX(-50%);
+  width:90%; height:26px;
+  background: radial-gradient(50% 60% at 50% 50%,
+    rgba(255,191,70,.45) 0%,
+    rgba(255,191,70,0) 70%);
+  filter: blur(16px);
+  pointer-events:none;
+}
