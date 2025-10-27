@@ -269,3 +269,20 @@ body::after{
   50%  { transform: translate(10px, 20px) scale(1.05); opacity: .55; }
   100% { transform: translate(0px, 0px) scale(1.0); opacity: .45; }
 }
+/* STRONGER COSMIC FIELD */
+body::before{
+  filter: blur(18px);
+  opacity: .75;
+}
+
+/* more floating nodes */
+body::after{
+  opacity:.55;
+  background-image:
+    radial-gradient(3px 3px at 20% 25%, rgba(255,191,70,.8), transparent),
+    radial-gradient(2px 2px at 80% 30%, rgba(0,200,255,.8), transparent),
+    radial-gradient(4px 4px at 60% 75%, rgba(255,191,70,.8), transparent),
+    radial-gradient(3px 3px at 35% 60%, rgba(0,200,255,.8), transparent),
+    radial-gradient(3px 3px at 50% 10%, rgba(255,191,70,.8), transparent),
+    radial-gradient(2px 2px at 85% 85%, rgba(0,200,255,.8), transparent);
+}
