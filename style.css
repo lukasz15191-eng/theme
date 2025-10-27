@@ -305,3 +305,26 @@ body::after{
     radial-gradient(3px 3px at 50% 10%, rgba(255,191,70,.8), transparent),
     radial-gradient(2px 2px at 85% 85%, rgba(0,200,255,.8), transparent);
 }
+/* ==== PLASMA SMOKE AURA ==== */
+.card::before{
+  content:"";
+  position:absolute;
+  top:-60px;
+  left:50%;
+  width:140%;
+  height:240px;
+  transform:translateX(-50%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,191,70,.32), transparent 70%),
+    radial-gradient(circle at 40% 60%, rgba(0,200,255,.28), transparent 75%);
+  filter: blur(45px);
+  opacity: .55;
+  pointer-events:none;
+  animation: plasmaMove 11s ease-in-out infinite alternate;
+}
+@keyframes plasmaMove {
+  0%   { transform:translateX(-50%) translateY(0) scale(1);    opacity:.45; }
+  40%  { transform:translateX(-48%) translateY(-10px) scale(1.08); opacity:.58; }
+  70%  { transform:translateX(-52%) translateY(5px) scale(1.03); opacity:.52; }
+  100% { transform:translateX(-50%) translateY(-4px) scale(1.1); opacity:.48; }
+}
