@@ -235,3 +235,37 @@ body{
   filter: blur(16px);
   pointer-events:none;
 }
+/* ===== COSMIC NODES BACKGROUND ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(0,200,255,.12), transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(255,191,70,.15), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(0,150,255,.08), transparent 60%),
+    #0a0c11;
+  filter: blur(12px);
+}
+
+/* moving floating nodes */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background-image:
+    radial-gradient(3px 3px at 25% 30%, rgba(255,191,70,.8), transparent),
+    radial-gradient(2px 2px at 75% 40%, rgba(0,200,255,.8), transparent),
+    radial-gradient(4px 4px at 60% 75%, rgba(255,191,70,.8), transparent),
+    radial-gradient(3px 3px at 40% 60%, rgba(0,200,255,.8), transparent);
+  animation: nodesMove 10s infinite ease-in-out alternate;
+  opacity:.45;
+}
+
+@keyframes nodesMove {
+  0%   { transform: translate(-15px, -10px) scale(1.0); opacity: .42; }
+  50%  { transform: translate(10px, 20px) scale(1.05); opacity: .55; }
+  100% { transform: translate(0px, 0px) scale(1.0); opacity: .45; }
+}
